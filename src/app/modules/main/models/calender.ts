@@ -202,6 +202,7 @@ class Day{
     end:string = "";
     subtract:string = "";
     hours:string = "";
+    hoursShort:string = "";
 
     info:string = "";
 
@@ -236,6 +237,7 @@ class Day{
         this.end = "";
         this.subtract = "";
         this.hours = "";
+        this.hoursShort = "";
 
         this.info = "";
 
@@ -284,6 +286,14 @@ class Day{
             // Set params
             this.hours = showHour + "h " + showMinute + "m";
 
+            if (sumMinute > 0) {
+                this.hoursShort = sumHour.toString() + "." + sumMinute.toString();
+            }
+            else{
+                this.hoursShort = sumHour.toString();
+            }
+            
+
             if (showMinute == "00") {
                 this.hours = showHour;
             }
@@ -325,7 +335,7 @@ class View{
     week:boolean =  false;
     day:boolean =  false;
 
-    iterate:number = 0;
+    iterate:number = 1;
 
     constructor(){
         if (this.iterate == 0) {

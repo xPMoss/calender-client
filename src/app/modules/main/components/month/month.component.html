@@ -24,22 +24,34 @@
     <div class="col px-1 px-md-3 pb-2 border" *ngFor="let day of week.days; index as k;" >
         
         <!-- If (today) -->
-        <div *ngIf="day.current" class="text-info">
-            <small *ngIf="day.month.id == calender.offset.month.id && day.day!=1" > {{ day.day }}</small>
-            <small *ngIf="day.month.id == calender.offset.month.id && day.day==1" >{{ day.day }}&nbsp;{{ day.month.nameShort }}</small>
-            <small *ngIf="day.month.id != calender.offset.month.id && day.day==1" class="text-muted">{{ day.day }}&nbsp;{{ day.month.nameShort }}</small>
-            <small *ngIf="day.month.id != calender.offset.month.id && day.day!=1" class="text-muted"> {{ day.day }}</small>
+        <div class="text-info d-none d-md-inline" *ngIf="day.current">
+            <small *ngIf="day.month.id == calender.offset.month.id" >{{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
+            <small *ngIf="day.month.id != calender.offset.month.id" class="text-muted">{{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
+            <small *ngIf="!k"><small>&nbsp;(v.{{ week.id }})</small></small>
+        </div>
+        <!-- Else (other day) -->
+        <div class="d-none d-md-inline" *ngIf="day.current==false">
+            <small *ngIf="day.month.id == calender.offset.month.id" >{{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
+            <small *ngIf="day.month.id != calender.offset.month.id" class="text-muted">{{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
             <small *ngIf="!k"><small>&nbsp;(v.{{ week.id }})</small></small>
         </div>
 
-        <!-- Else (other day) -->
-        <div *ngIf="day.current==false">
-            <small *ngIf="day.month.id == calender.offset.month.id && day.day!=1" > {{ day.day }}</small>
-            <small *ngIf="day.month.id == calender.offset.month.id && day.day==1" >{{ day.day }}&nbsp;{{ day.month.nameShort }}</small>
-            <small *ngIf="day.month.id != calender.offset.month.id && day.day==1" class="text-muted">{{ day.day }}&nbsp;{{ day.month.nameShort }}</small>
-            <small *ngIf="day.month.id != calender.offset.month.id && day.day!=1" class="text-muted">{{ day.day }}</small>
+        <!-- Mobile -->
+        <!-- If (today) -->
+        <div class="text-info d-inline d-md-none" *ngIf="day.current">
+            <small *ngIf="day.month.id == calender.offset.month.id" >{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
+            <small *ngIf="day.month.id != calender.offset.month.id" class="text-muted">{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
             <small *ngIf="!k"><small>&nbsp;(v.{{ week.id }})</small></small>
         </div>
+        <!-- Else (other day) -->
+        <div class="d-inline d-md-none" *ngIf="day.current==false">
+            <small *ngIf="day.month.id == calender.offset.month.id" >{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
+            <small *ngIf="day.month.id != calender.offset.month.id" class="text-muted">{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
+            <small *ngIf="!k"><small>&nbsp;(v.{{ week.id }})</small></small>
+        </div>
+
+
+
     
         <!-- Linebreak -->
         <div class="w-100"></div>
