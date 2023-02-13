@@ -1,10 +1,14 @@
 
 
-
+<div class="container-fluid mb-4" *ngIf="calenderController.isLoading">
+    <div class="text-center p-4">
+        <loading-component></loading-component>
+    </div>
+</div>
 
 <!-- | YEAR | -->
-<div class="container-fluid mb-4" *ngIf="calender.view.year">
-    <div class="row bg-light py-3 border">
+<div class="container-fluid mb-4" *ngIf="!calenderController.isLoading">
+    <div class="row bg-light py-3 border-bottom">
         <prev-btn-item class="col-auto" ></prev-btn-item>
         <div class="col p-0 m-0"></div>
 
@@ -19,100 +23,95 @@
         
     </div>
 
-    <div class="text-center p-4" *ngIf="calenderController.isLoading">
-        <loading-component></loading-component>
-    </div>
 
-    <div *ngIf="!calenderController.isLoading">
-        <div *ngFor="let month of calender.offset.year.months; index as i;">
-            <div class="row bg-light">
-                <h5 class="col-12 py-4 ps-4 border-top _btn" (click)="calenderController.changeView('month');">
-                    {{ calender.offset.year.months[i].name }}  {{ calender.offset.year.id }}
-                </h5>
-            </div>
-        
-            <div class="row">
-                
-                <div class="col px-1 px-md-3 pb-4 border d-none d-md-inline"></div>
-                <div class="col px-1 px-md-3 pb-4 border d-none d-md-inline" *ngFor="let name of calender.dayNames; index as k;">
-                    <div>{{ name }}</div>
-                       
-                </div>
-                <div class="col px-1 px-md-3 pb-4 border d-none d-md-inline"></div>
-    
-                <div class="col px-1 px-md-3 m-0 border d-inline d-md-none"></div>
-                <div class="col px-1 px-md-3 pb-2 border d-inline d-md-none" *ngFor="let nameShort of calender.dayNamesShort; index as k;">
-                    <div>{{ nameShort }} </div>
-                </div>
-                <div class="col px-1 px-md-3 m-0 border d-inline d-md-none"></div>
-                
-                <div class="w-100"></div>
-            </div>
-        
-            <div class="row" *ngFor="let week of calender.offset.year.months[i].weeks; index as j;">
-                
-                <div class="col px-1 px-md-3 pb-4 border _btn" (click)="calenderController.changeView('week');">v.{{ week.id }}</div>
-                <div class="col px-1 px-md-3 pb-4 border _btn" (click)="calenderController.changeView('day');" *ngFor="let day of week.days; index as k;">
-    
-                     <!-- Desktop -->
-                    <div class="text-info d-none d-md-inline" *ngIf="day.current">
-                        <small *ngIf="day.year.id==calender.offset.year.id" >{{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
-                        <small *ngIf="day.year.id!=calender.offset.year.id" class="text-muted"> {{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
-                    </div>
-                    <div class="d-none d-md-inline" *ngIf="day.current==false">
-                        <small *ngIf="day.year.id==calender.offset.year.id" >{{ day.day}}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
-                        <small *ngIf="day.year.id!=calender.offset.year.id" class="text-muted"> {{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
-                    </div>
-    
-                     <!-- Mobile -->
-                    <div class="text-info d-inline d-md-none" *ngIf="day.current">
-                        <small *ngIf="day.year.id==calender.offset.year.id" >{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
-                        <small *ngIf="day.year.id!=calender.offset.year.id" class="text-muted"> {{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
-                    </div>
-                    <div class="d-inline d-md-none" *ngIf="day.current==false">
-                        <small *ngIf="day.year.id==calender.offset.year.id" >{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
-                        <small *ngIf="day.year.id!=calender.offset.year.id" class="text-muted">{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
-                    </div>
-    
-                    <!-- Linebreak -->
-                    <div class="w-100"></div>
-                    <div class="col-12 d-inline d-md-none">
-                        <small *ngIf="day.empty==false"><small><small>{{ day.hours }}</small></small></small>
-                    </div>
-                    <div class="col-12 d-inline d-md-none" *ngIf="day.empty==true">
-                        <small><small> {{ '&nbsp;'}} </small></small>
-                    </div>
-                    <div class="col-12 d-none d-md-inline" *ngIf="day.empty==false">
-                        <small><small> {{ day.start + ' - ' + day.end + ' (' + day.subtract + 'min)'}} </small></small>
-                        <small><small> <br/> {{ day.info }} </small></small>
-                    </div>
-                    <div class="col-12 d-none d-md-inline" *ngIf="day.empty==true">
-                        <small><small> {{ '&nbsp;'}} </small></small>
-                    </div>
-                
-                </div>
-                <div class="col px-1 px-md-3 pb-4 border" *ngIf="week.empty==false">
-                    <div class="d-none d-md-inline">{{ week.hours }}</div>
-                    <small class="d-inline d-md-none"><small>{{ week.hours }}</small></small>
-                </div>
-                <div class="col px-1 px-md-3 pb-4 border" *ngIf="week.empty==true"></div>
-    
-    
-                <div class="w-100"></div>
-                
-            </div>
-    
-            <div class="row py-2 border">
-                <div class="col"></div>
-                <div class="col-auto me-2 py-2" >
-                    Totalt: {{ month.hours }}
-            
-                </div>
-            </div>
-            
-    
-    
+    <div *ngFor="let month of calender.offset.year.months; index as i;">
+        <div class="row bg-light">
+            <h5 class="col-12 py-4 ps-4 border-top _btn" (click)="calenderController.changeView('month');">
+                {{ calender.offset.year.months[i].name }}  {{ calender.offset.year.id }}
+            </h5>
         </div>
+    
+        <div class="row">
+            
+            <div class="col px-1 px-md-3 pb-4 border d-none d-md-inline"></div>
+            <div class="col px-1 px-md-3 pb-4 border d-none d-md-inline" *ngFor="let name of calender.dayNames; index as k;">
+                <div>{{ name }}</div>
+                   
+            </div>
+            <div class="col px-1 px-md-3 pb-4 border d-none d-md-inline"></div>
+
+            <div class="col px-1 px-md-3 m-0 border d-inline d-md-none"></div>
+            <div class="col px-1 px-md-3 pb-2 border d-inline d-md-none" *ngFor="let nameShort of calender.dayNamesShort; index as k;">
+                <div>{{ nameShort }} </div>
+            </div>
+            <div class="col px-1 px-md-3 m-0 border d-inline d-md-none"></div>
+            
+            <div class="w-100"></div>
+        </div>
+    
+        <div class="row" *ngFor="let week of calender.offset.year.months[i].weeks; index as j;">
+            
+            <div class="col px-1 px-md-3 pb-4 border _btn" (click)="calenderController.changeView('week');">v.{{ week.id }}</div>
+            <div class="col px-1 px-md-3 pb-4 border _btn" (click)="calenderController.changeView('day');" *ngFor="let day of week.days; index as k;">
+
+                 <!-- Desktop -->
+                <div class="text-info d-none d-md-inline" *ngIf="day.current">
+                    <small *ngIf="day.year.id==calender.offset.year.id" >{{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
+                    <small *ngIf="day.year.id!=calender.offset.year.id" class="text-muted"> {{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
+                </div>
+                <div class="d-none d-md-inline" *ngIf="day.current==false">
+                    <small *ngIf="day.year.id==calender.offset.year.id" >{{ day.day}}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
+                    <small *ngIf="day.year.id!=calender.offset.year.id" class="text-muted"> {{ day.day }}&nbsp;<div *ngIf="day.day==1">{{ day.month.nameShort }}</div></small>
+                </div>
+
+                 <!-- Mobile -->
+                <div class="text-info d-inline d-md-none" *ngIf="day.current">
+                    <small *ngIf="day.year.id==calender.offset.year.id" >{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
+                    <small *ngIf="day.year.id!=calender.offset.year.id" class="text-muted"> {{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
+                </div>
+                <div class="d-inline d-md-none" *ngIf="day.current==false">
+                    <small *ngIf="day.year.id==calender.offset.year.id" >{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
+                    <small *ngIf="day.year.id!=calender.offset.year.id" class="text-muted">{{ day.day }}&nbsp;<small *ngIf="day.day==1">{{ day.month.nameShort }}</small></small>
+                </div>
+
+                <!-- Linebreak -->
+                <div class="w-100"></div>
+                <div class="col-12 d-inline d-md-none">
+                    <small *ngIf="day.empty==false"><small><small>{{ day.hours }}</small></small></small>
+                </div>
+                <div class="col-12 d-inline d-md-none" *ngIf="day.empty==true">
+                    <small><small> {{ '&nbsp;'}} </small></small>
+                </div>
+                <div class="col-12 d-none d-md-inline" *ngIf="day.empty==false">
+                    <small><small> {{ day.start + ' - ' + day.end + ' (' + day.subtract + 'min)'}} </small></small>
+                    <small><small> <br/> {{ day.info }} </small></small>
+                </div>
+                <div class="col-12 d-none d-md-inline" *ngIf="day.empty==true">
+                    <small><small> {{ '&nbsp;'}} </small></small>
+                </div>
+            
+            </div>
+            <div class="col px-1 px-md-3 pb-4 border" *ngIf="week.empty==false">
+                <div class="d-none d-md-inline">{{ week.hours }}</div>
+                <small class="d-inline d-md-none"><small>{{ week.hours }}</small></small>
+            </div>
+            <div class="col px-1 px-md-3 pb-4 border" *ngIf="week.empty==true"></div>
+
+
+            <div class="w-100"></div>
+            
+        </div>
+
+        <div class="row py-2 border">
+            <div class="col"></div>
+            <div class="col-auto me-2 py-2" >
+                Totalt: {{ month.hours }}
+        
+            </div>
+        </div>
+        
+
+
     </div>
     
     

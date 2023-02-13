@@ -1,10 +1,16 @@
 
 
+<div class="container-fluid mb-4" *ngIf="calenderController.isLoading">
+    <div class="text-center p-4">
+        <loading-component></loading-component>
+    </div>
+</div>
+
 
 
 <!-- | WEEK | -->
-<div class="container-fluid mb-4" *ngIf="calender.view.week">
-    <div class="row bg-light py-3 border">
+<div class="container-fluid mb-4" *ngIf="!calenderController.isLoading">
+    <div class="row bg-light py-3 border-bottom">
         <prev-btn-item class="col-auto"></prev-btn-item>
         <div class="col p-0 m-0"></div>
 
@@ -37,6 +43,7 @@
         <next-btn-item class="col-auto"></next-btn-item>
     </div>
 
+
     <div class="row py-2 border" *ngIf="calender.offset.day as day">
         <div class="col-2 col-md-2 me-3 me-sm-0">
             Dag
@@ -60,76 +67,70 @@
 
     </div>
 
-    <div class="text-center p-4" *ngIf="calenderController.isLoading">
-        <loading-component></loading-component>
+    <div class="row py-2 border" *ngFor="let day of calender.offset.week.days; index as i;">
+    
+        <!-- <small>({{ day.id }})</small> -->
+        
+        <div class="col-2 me-3 me-sm-0" *ngIf="day.current">
+            <div class="col text-info pt-1">
+                {{ day.name }}<small class="d-none d-md-inline"> ({{ day.day }} {{ day.month.nameShort }})</small>
+            </div>
+        </div>
+
+        <div class="col-2 me-3 me-sm-0" *ngIf="day.current==false">
+            <div class="col pt-1">
+                {{ day.name }}<small class="d-none d-md-inline"> ({{ day.day }} {{ day.month.nameShort }})</small>
+            </div>
+        </div>
+    
+        
+        <!-- Set hours -->
+        <div class="col-2 col-md-1 m-0 p-0 me-1 me-md-3">
+            <input class="form-control" id="start-input" [(ngModel)]="day.start" #startTimeWeek (change)="calenderController.calcSum(day, startTimeWeek.value, 'start');" (input)="calenderController.validate(day, startTimeWeek.value, 'start');">
+        </div>
+
+        <div class="col-2 col-md-1 m-0 p-0 me-1 me-md-3">
+           <input class="form-control" id="end-input" [(ngModel)]="day.end" #endTimeWeek (change)="calenderController.calcSum(day, endTimeWeek.value, 'end');" (input)="calenderController.validate(day, endTimeWeek.value, 'end');">
+        </div>
+
+        <div class="col-2 col-md-1 m-0 p-0 me-3 me-md-3">
+            <input class="form-control" id="end-input" [(ngModel)]="day.subtract" #subtractTimeWeek (change)="calenderController.calcSum(day, subtractTimeWeek.value, 'sub');" (input)="calenderController.validate(day, subtractTimeWeek.value, 'sub');">
+
+        </div>
+
+        <div class="col-2 col-md-1 m-0 p-0 pt-1">
+            {{ day.hours }}
+        </div>
+        <div class="w-100 mb-2 d-block d-md-none"></div>
+        <div class="col-2 me-3 me-sm-0 d-block d-md-none">
+            Info
+        </div>
+
+        <!-- Set info -->
+        <div class="col-7 col-md-auto m-0 p-0 me-3 me-md-4">
+            <input class="form-control me-4" id="week-input" [(ngModel)]="day.info" #infoWeek (change)="calenderController.setInfo(day, infoWeek.value);">
+        </div>
+        
+
+        <button *ngIf="day.empty==true" style="opacity: 0;" class="col-auto btn btn-outline-danger btn-sm d-none d-md-block" id="" (click)="calenderController.clear(day); startTimeWeek.value=''; endTimeWeek.value=''; subtractTimeWeek.value=''">
+            Rensa
+        </button>
+
+        <button *ngIf="day.empty==false" class="col-auto btn btn-outline-danger btn-sm" id="" (click)="calenderController.clear(day); startTimeWeek.value=''; endTimeWeek.value=''; subtractTimeWeek.value=''">
+            Rensa
+        </button>
+
+        <div class="w-100"></div>
+
     </div>
 
-    <div *ngIf="!calenderController.isLoading">
-        <div class="row py-2 border" *ngFor="let day of calender.offset.week.days; index as i;">
-        
-            <!-- <small>({{ day.id }})</small> -->
-            
-            <div class="col-2 me-3 me-sm-0" *ngIf="day.current">
-                <div class="col text-info pt-1">
-                    {{ day.name }}<small class="d-none d-md-inline"> ({{ day.day }} {{ day.month.nameShort }})</small>
-                </div>
-            </div>
-    
-            <div class="col-2 me-3 me-sm-0" *ngIf="day.current==false">
-                <div class="col pt-1">
-                    {{ day.name }}<small class="d-none d-md-inline"> ({{ day.day }} {{ day.month.nameShort }})</small>
-                </div>
-            </div>
-        
-            
-            <!-- Set hours -->
-            <div class="col-2 col-md-1 m-0 p-0 me-1 me-md-3">
-                <input class="form-control" id="start-input" [(ngModel)]="day.start" #startTimeWeek (change)="calenderController.calcSum(day, startTimeWeek.value, 'start');" (input)="calenderController.validate(day, startTimeWeek.value, 'start');">
-            </div>
-    
-            <div class="col-2 col-md-1 m-0 p-0 me-1 me-md-3">
-               <input class="form-control" id="end-input" [(ngModel)]="day.end" #endTimeWeek (change)="calenderController.calcSum(day, endTimeWeek.value, 'end');" (input)="calenderController.validate(day, endTimeWeek.value, 'end');">
-            </div>
-    
-            <div class="col-2 col-md-1 m-0 p-0 me-3 me-md-3">
-                <input class="form-control" id="end-input" [(ngModel)]="day.subtract" #subtractTimeWeek (change)="calenderController.calcSum(day, subtractTimeWeek.value, 'sub');" (input)="calenderController.validate(day, subtractTimeWeek.value, 'sub');">
-    
-            </div>
-    
-            <div class="col-2 col-md-1 m-0 p-0 pt-1">
-                {{ day.hours }}
-            </div>
-            <div class="w-100 mb-2 d-block d-md-none"></div>
-            <div class="col-2 me-3 me-sm-0 d-block d-md-none">
-                Info
-            </div>
-    
-            <!-- Set info -->
-            <div class="col-7 col-md-auto m-0 p-0 me-3 me-md-4">
-                <input class="form-control me-4" id="week-input" [(ngModel)]="day.info" #infoWeek (change)="calenderController.setInfo(day, infoWeek.value);">
-            </div>
-            
-    
-            <button *ngIf="day.empty==true" style="opacity: 0;" class="col-auto btn btn-outline-danger btn-sm d-none d-md-block" id="" (click)="calenderController.clear(day); startTimeWeek.value=''; endTimeWeek.value=''; subtractTimeWeek.value=''">
-                Rensa
-            </button>
-    
-            <button *ngIf="day.empty==false" class="col-auto btn btn-outline-danger btn-sm" id="" (click)="calenderController.clear(day); startTimeWeek.value=''; endTimeWeek.value=''; subtractTimeWeek.value=''">
-                Rensa
-            </button>
-    
-            <div class="w-100"></div>
-    
+    <div class="row py-2 border" *ngIf="calender.offset.week.empty==false">
+        <div class="col"></div>
+        <div class="col-auto me-2 py-2" >
+            Totalt: {{ calender.offset.week.hours }}
+
         </div>
-    
-        <div class="row py-2 border" *ngIf="calender.offset.week.empty==false">
-            <div class="col"></div>
-            <div class="col-auto me-2 py-2" >
-                Totalt: {{ calender.offset.week.hours }}
-    
-            </div>
-    
-        </div>
+
     </div>
     
     

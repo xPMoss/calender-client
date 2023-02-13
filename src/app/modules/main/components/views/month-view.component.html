@@ -1,14 +1,18 @@
 
 
 
-
+<div class="container-fluid mb-4" *ngIf="calenderController.isLoading">
+    <div class="text-center p-4">
+        <loading-component></loading-component>
+    </div>
+</div>
 
 
 
 <!-- | MONTH | -->
-<div class="container-fluid mb-4" *ngIf="calender.view.month">
+<div class="container-fluid mb-4" *ngIf="!calenderController.isLoading">
 
-    <div class="row bg-light py-3 border">
+    <div class="row bg-light py-3 border-bottom">
         <prev-btn-item class="col-auto"></prev-btn-item>
         <div class="col p-0 m-0"></div>
 
@@ -23,10 +27,7 @@
         
     </div>
 
-    <div class="text-center p-4" *ngIf="calenderController.isLoading">
-        <loading-component></loading-component>
-    </div>
 
-    <month-component [calender]="calender" *ngIf="!calenderController.isLoading"></month-component>
+    <month-component [calender]="calender"></month-component>
     
 </div>

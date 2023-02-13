@@ -15,13 +15,13 @@
 <view-item></view-item>
 
 <!-- | DAY | -->
-<day-view-item [calender]="calender"></day-view-item>
+<day-view-item [calender]="calender" *ngIf="calender.view.day"></day-view-item>
 <!-- | WEEK | -->
-<week-view-item [calender]="calender"></week-view-item>
+<week-view-item [calender]="calender" *ngIf="calender.view.week"></week-view-item>
 <!-- | MONTH | -->
-<month-view-item [calender]="calender"></month-view-item>
+<month-view-item [calender]="calender" *ngIf="calender.view.month"></month-view-item>
 <!-- | YEAR | -->
-<year-view-item [calender]="calender"></year-view-item>
+<year-view-item [calender]="calender" *ngIf="calender.view.year"></year-view-item>
 
 
 

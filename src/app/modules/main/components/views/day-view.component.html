@@ -1,10 +1,14 @@
 
 
-
+<div class="container-fluid mb-4" *ngIf="calenderController.isLoading">
+    <div class="text-center p-4">
+        <loading-component></loading-component>
+    </div>
+</div>
 
 <!-- | DAY | -->
-<div class="container-fluid mb-4" *ngIf="calender.view.day; ">
-    <div class="row bg-light py-3 border" *ngIf="calender.offset.day as day;">
+<div class="container-fluid mb-4" *ngIf="!calenderController.isLoading">
+    <div class="row bg-light py-3 border-bottom" *ngIf="calender.offset.day as day;">
         <prev-btn-item class="col-auto"></prev-btn-item>
         <div class="col p-0 m-0"></div>
 
@@ -29,81 +33,75 @@
     </div>
 
 
-    <div class="text-center p-4" *ngIf="calenderController.isLoading">
-        <loading-component></loading-component>
+
+    <div class="row py-2 border" *ngIf="calender.offset.day as day">
+        <div class="col-2 col-md-2 me-3 me-sm-0">
+            Dag
+        </div>
+        <div class="col-2 col-md-1 me-1 me-md-3 ps-0">
+            Starttid
+        </div>
+        <div class="col-2 col-md-1 me-1 me-md-3 ps-0">
+            Sluttid
+        </div>
+        <div class="col-2 col-md-1 me-3 me-md-3 ps-0">
+            Paus
+        </div>
+        <div class="col-2 col-md-1 me-md-3 ps-0">
+            Totalt
+        </div>
+        <div class="col-auto ps-0 d-none d-md-block">
+            Info
+        </div>
+
     </div>
 
-    <div *ngIf="!calenderController.isLoading">
-        <div class="row py-2 border" *ngIf="calender.offset.day as day">
-            <div class="col-2 col-md-2 me-3 me-sm-0">
-                Dag
+    <div class="row py-2 border" *ngIf="calender.offset.day as day">
+
+        <div class="col-2 me-3 me-sm-0" *ngIf="day.current">
+            <div class="col text-info pt-1">
+                {{ day.name }}<small class="d-none d-md-inline"> ({{ day.day }} {{ day.month.nameShort }})</small>
             </div>
-            <div class="col-2 col-md-1 me-1 me-md-3 ps-0">
-                Starttid
-            </div>
-            <div class="col-2 col-md-1 me-1 me-md-3 ps-0">
-                Sluttid
-            </div>
-            <div class="col-2 col-md-1 me-3 me-md-3 ps-0">
-                Paus
-            </div>
-            <div class="col-2 col-md-1 me-md-3 ps-0">
-                Totalt
-            </div>
-            <div class="col-auto ps-0 d-none d-md-block">
-                Info
-            </div>
-    
         </div>
-    
-        <div class="row py-2 border" *ngIf="calender.offset.day as day">
-    
-            <div class="col-2 me-3 me-sm-0" *ngIf="day.current">
-                <div class="col text-info pt-1">
-                    {{ day.name }}<small class="d-none d-md-inline"> ({{ day.day }} {{ day.month.nameShort }})</small>
-                </div>
+
+        <div class="col-2 me-3 me-sm-0" *ngIf="day.current==false">
+            <div class="col pt-1">
+                {{ day.name }}<small class="d-none d-md-inline"> ({{ day.day }} {{ day.month.nameShort }})</small>
             </div>
-    
-            <div class="col-2 me-3 me-sm-0" *ngIf="day.current==false">
-                <div class="col pt-1">
-                    {{ day.name }}<small class="d-none d-md-inline"> ({{ day.day }} {{ day.month.nameShort }})</small>
-                </div>
-            </div>
-                    
-            <div class="col-2 col-md-1 m-0 p-0 me-1 me-md-3">
-                <input class="form-control me-2" id="start-input" [value]="day.start" #startTimeDay (change)="calenderController.calcSum(day, startTimeDay.value, 'start');" (input)="calenderController.validate(day, startTimeDay.value, 'start');">
-            </div>
-            <div class="col-2 col-md-1 m-0 p-0 me-1 me-md-3">
-                <input class="col-1 form-control me-2" id="end-input" [value]="day.end" #endTimeDay (change)="calenderController.calcSum(day, endTimeDay.value, 'end');" (input)="calenderController.validate(day, endTimeDay.value, 'end');">
-            </div>
-            <div class="col-2 col-md-1 m-0 p-0 me-3 me-md-3">
-                <input class="col-1 form-control" id="end-input" [value]="day.subtract" #subtractTimeDay (change)="calenderController.calcSum(day, subtractTimeDay.value, 'sub');" (input)="calenderController.validate(day, subtractTimeDay.value, 'sub');">
-            </div>
-    
-            <div class="col-2 col-md-1 m-0 p-0 pt-1">
-                {{ day.hours }}
-            </div>
-            <div class="w-100 mb-2 d-block d-md-none"></div>
-            <div class="col-2 me-3 me-sm-0 d-block d-md-none">
-                Info
-            </div>
-            
-            <!-- Set info -->
-            <div class="col-7 col-md-auto m-0 p-0 me-3 me-md-4">
-                <input class="form-control me-4" id="day-input" [value]="day.info" #infoDay (change)="calenderController.setInfo(day, infoDay.value);">
-            </div>
-    
-            <button *ngIf="day.empty==true" style="opacity: 0;" class="col-auto btn btn-outline-danger btn-sm d-none d-md-block" id="" (click)="calenderController.clear(day); startTimeDay.value=''; endTimeDay.value=''; subtractTimeDay.value=''">
-                Rensa
-            </button>
-    
-            <button *ngIf="day.empty==false" class="col-auto btn btn-outline-danger btn-sm" id="" (click)="calenderController.clear(day); startTimeDay.value=''; endTimeDay.value=''; subtractTimeDay.value=''">
-                Rensa
-            </button>
-    
-            
         </div>
-    
+                
+        <div class="col-2 col-md-1 m-0 p-0 me-1 me-md-3">
+            <input class="form-control me-2" id="start-input" [value]="day.start" #startTimeDay (change)="calenderController.calcSum(day, startTimeDay.value, 'start');" (input)="calenderController.validate(day, startTimeDay.value, 'start');">
+        </div>
+        <div class="col-2 col-md-1 m-0 p-0 me-1 me-md-3">
+            <input class="col-1 form-control me-2" id="end-input" [value]="day.end" #endTimeDay (change)="calenderController.calcSum(day, endTimeDay.value, 'end');" (input)="calenderController.validate(day, endTimeDay.value, 'end');">
+        </div>
+        <div class="col-2 col-md-1 m-0 p-0 me-3 me-md-3">
+            <input class="col-1 form-control" id="end-input" [value]="day.subtract" #subtractTimeDay (change)="calenderController.calcSum(day, subtractTimeDay.value, 'sub');" (input)="calenderController.validate(day, subtractTimeDay.value, 'sub');">
+        </div>
+
+        <div class="col-2 col-md-1 m-0 p-0 pt-1">
+            {{ day.hours }}
+        </div>
+        <div class="w-100 mb-2 d-block d-md-none"></div>
+        <div class="col-2 me-3 me-sm-0 d-block d-md-none">
+            Info
+        </div>
+        
+        <!-- Set info -->
+        <div class="col-7 col-md-auto m-0 p-0 me-3 me-md-4">
+            <input class="form-control me-4" id="day-input" [value]="day.info" #infoDay (change)="calenderController.setInfo(day, infoDay.value);">
+        </div>
+
+        <button *ngIf="day.empty==true" style="opacity: 0;" class="col-auto btn btn-outline-danger btn-sm d-none d-md-block" id="" (click)="calenderController.clear(day); startTimeDay.value=''; endTimeDay.value=''; subtractTimeDay.value=''">
+            Rensa
+        </button>
+
+        <button *ngIf="day.empty==false" class="col-auto btn btn-outline-danger btn-sm" id="" (click)="calenderController.clear(day); startTimeDay.value=''; endTimeDay.value=''; subtractTimeDay.value=''">
+            Rensa
+        </button>
+
+        
     </div>
     
     <!--
