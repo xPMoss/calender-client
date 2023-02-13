@@ -1,4 +1,14 @@
 
+# Miscellaneous
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+auth_config.json
+/src/environments
+
 # Compiled output
 /dist
 /tmp
@@ -6,6 +16,15 @@
 /bazel-out
 /docs
 /www
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+firebase.json
+
+# Angular
+.angular
 
 
 # Logs
