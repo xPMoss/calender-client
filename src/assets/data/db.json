@@ -1,0 +1,517 @@
+{
+  "tasks": [
+    {
+      "id": "task_0001",
+      "name": "name",
+      "client": "client",
+      "project": "project",
+      "info": "info",
+      "is_complete": false
+    }
+  ],
+  "clients": [
+    {
+      "id": "client0001",
+      "name": "Kommunen",
+      "info": ""
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Patrik Mossberg",
+      "email": "patrik.mossberg@cgi.com",
+      "password": "Password1234!"
+    },
+    {
+      "id": 2,
+      "name": "WeMG",
+      "email": "wemakeg@gmail.com",
+      "password": "WeMG1234!"
+    }
+  ],
+  "projects": [
+    {
+      "id": "project_0001",
+      "name": "",
+      "client": "Kommunen",
+      "info": "",
+      "is_complete": false
+    }
+  ],
+  "schedule": [
+    {
+      "id": "schedule_0001",
+      "date": "2022-09-09",
+      "start": "07:00",
+      "end": "12:00",
+      "hours": ""
+    },
+    {
+      "id": "schedule_0002",
+      "date": "2022-09-11",
+      "start": "07:00",
+      "end": "12:00",
+      "hours": ""
+    }
+  ],
+  "workitem": [
+    {
+      "id": "20220921_1",
+      "userid": 1,
+      "date": "2022-09-21",
+      "day": 21,
+      "start": "08:30",
+      "end": "16:00",
+      "subtract": "30",
+      "hours": "7h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220922_1",
+      "userid": 1,
+      "date": "2022-09-22",
+      "day": 22,
+      "start": "08:30",
+      "end": "15:00",
+      "subtract": "30",
+      "hours": "6h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220923_1",
+      "userid": 1,
+      "date": "2022-09-23",
+      "day": 23,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "30",
+      "hours": "8h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220912_1",
+      "userid": 1,
+      "date": "2022-09-12",
+      "day": 12,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "30",
+      "hours": "8h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220913_1",
+      "userid": 1,
+      "date": "2022-09-13",
+      "day": 13,
+      "start": "09:00",
+      "end": "15:00",
+      "subtract": "30",
+      "hours": "5h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220914_1",
+      "userid": 1,
+      "date": "2022-09-14",
+      "day": 14,
+      "start": "08:30",
+      "end": "16:00",
+      "subtract": "30",
+      "hours": "7h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220915_1",
+      "userid": 1,
+      "date": "2022-09-15",
+      "day": 15,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "30",
+      "hours": "8h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220916_1",
+      "userid": 1,
+      "date": "2022-09-16",
+      "day": 16,
+      "start": "08:30",
+      "end": "15:00",
+      "subtract": "30",
+      "hours": "6h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220905_1",
+      "userid": 1,
+      "date": "2022-09-05",
+      "day": 5,
+      "start": "10:00",
+      "end": "15:30",
+      "subtract": "30",
+      "hours": "5h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220906_1",
+      "userid": 1,
+      "date": "2022-09-06",
+      "day": 6,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "30",
+      "hours": "8h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220907_1",
+      "date": "2022-09-07",
+      "userid": 1,
+      "day": 7,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "30",
+      "hours": "8h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220908_1",
+      "date": "2022-09-08",
+      "userid": 1,
+      "day": 8,
+      "start": "08:30",
+      "end": "15:30",
+      "subtract": "60",
+      "hours": "6h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220909_1",
+      "date": "2022-09-09",
+      "userid": 1,
+      "day": 9,
+      "start": "08:30",
+      "end": "16:30",
+      "subtract": "60",
+      "hours": "7h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220829_1",
+      "date": "2022-08-29",
+      "userid": 1,
+      "day": 29,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "30",
+      "hours": "8h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220830_1",
+      "date": "2022-08-30",
+      "userid": 1,
+      "day": 30,
+      "start": "08:30",
+      "end": "15:30",
+      "subtract": "0",
+      "hours": "7h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220831_1",
+      "date": "2022-08-31",
+      "userid": 1,
+      "day": 31,
+      "start": "08:30",
+      "end": "15:30",
+      "subtract": "30",
+      "hours": "6h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220901_1",
+      "date": "2022-09-01",
+      "userid": 1,
+      "day": 1,
+      "start": "08:00",
+      "end": "15:30",
+      "subtract": "30",
+      "hours": "7h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220902_1",
+      "date": "2022-09-02",
+      "userid": 1,
+      "day": 2,
+      "start": "10:00",
+      "end": "15:30",
+      "subtract": "0",
+      "hours": "5h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220920_1",
+      "date": "2022-09-20",
+      "userid": 1,
+      "day": 20,
+      "start": "08:30",
+      "end": "17:30",
+      "subtract": "30",
+      "hours": "8h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220919_1",
+      "date": "2022-09-19",
+      "userid": 1,
+      "day": 19,
+      "start": "",
+      "end": "",
+      "subtract": "",
+      "hours": "",
+      "info": "VAB"
+    },
+    {
+      "id": "20220822_1",
+      "date": "2022-08-22",
+      "userid": 1,
+      "day": 22,
+      "start": "08:30",
+      "end": "17:30",
+      "subtract": "30",
+      "hours": "8h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220823_1",
+      "date": "2022-08-23",
+      "userid": 1,
+      "day": 23,
+      "start": "08:30",
+      "end": "16:30",
+      "subtract": "30",
+      "hours": "7h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220824_1",
+      "date": "2022-08-24",
+      "userid": 1,
+      "day": 24,
+      "start": "09:00",
+      "end": "16:00",
+      "subtract": "30",
+      "hours": "6h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220825_1",
+      "date": "2022-08-25",
+      "userid": 1,
+      "day": 25,
+      "start": "08:00",
+      "end": "16:00",
+      "subtract": "60",
+      "hours": "7h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220826_1",
+      "date": "2022-08-26",
+      "userid": 1,
+      "day": 26,
+      "start": "08:30",
+      "end": "14:00",
+      "subtract": "60",
+      "hours": "4h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220815_1",
+      "date": "2022-08-15",
+      "userid": 1,
+      "day": 15,
+      "start": "09:00",
+      "end": "17:00",
+      "subtract": "60",
+      "hours": "7h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220816_1",
+      "date": "2022-08-16",
+      "userid": 1,
+      "day": 16,
+      "start": "08:30",
+      "end": "17:30",
+      "subtract": "60",
+      "hours": "8h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220817_1",
+      "date": "2022-08-17",
+      "userid": 1,
+      "day": 17,
+      "start": "08:30",
+      "end": "17:30",
+      "subtract": "60",
+      "hours": "8h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220818_1",
+      "date": "2022-08-18",
+      "userid": 1,
+      "day": 18,
+      "start": "09:00",
+      "end": "15:00",
+      "subtract": "60",
+      "hours": "5h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220819_1",
+      "date": "2022-08-19",
+      "userid": 1,
+      "day": 19,
+      "start": "08:30",
+      "end": "15:00",
+      "subtract": "30",
+      "hours": "6h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220926_1",
+      "date": "2022-09-26",
+      "userid": 1,
+      "day": 26,
+      "start": "08:30",
+      "end": "15:00",
+      "subtract": "60",
+      "hours": "5h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220927_1",
+      "date": "2022-09-27",
+      "userid": 1,
+      "day": 27,
+      "start": "08:30",
+      "end": "17:30",
+      "subtract": "0",
+      "hours": "9h 0m",
+      "info": ""
+    },
+    {
+      "id": "20220928_1",
+      "date": "2022-09-28",
+      "userid": 1,
+      "day": 28,
+      "start": "08:30",
+      "end": "16:00",
+      "subtract": "120",
+      "hours": "4h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220929_1",
+      "userid": 1,
+      "date": "2022-09-29",
+      "day": 29,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "0",
+      "hours": "8h 30m",
+      "info": ""
+    },
+    {
+      "id": "20220930_1",
+      "userid": 1,
+      "date": "2022-09-30",
+      "day": 30,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "120",
+      "hours": "6h 30m",
+      "info": "Sjukhus Ingrid 2h"
+    },
+    {
+      "id": "20221003_2",
+      "userid": 2,
+      "date": "2022-10-03",
+      "day": 3,
+      "start": "08:00",
+      "end": "18:00",
+      "subtract": "60",
+      "hours": "9h 0m",
+      "info": ""
+    },
+    {
+      "id": "20221004_2",
+      "userid": 2,
+      "date": "2022-10-04",
+      "day": 4,
+      "start": "08:00",
+      "end": "18:00",
+      "subtract": "60",
+      "hours": "9h 0m",
+      "info": ""
+    },
+    {
+      "id": "20221003_1",
+      "userid": 1,
+      "date": "2022-10-03",
+      "day": 3,
+      "start": "08:30",
+      "end": "17:00",
+      "subtract": "30",
+      "hours": "8h 0m",
+      "info": ""
+    }
+  ],
+  "item": [
+    {
+      "id": 1,
+      "workitem": [
+        {
+          "id": "20220930",
+          "userid": 1,
+          "date": "2022-09-30",
+          "day": 21,
+          "start": "08:30",
+          "end": "16:00",
+          "subtract": "30",
+          "hours": "7h 0m",
+          "info": ""
+        }
+      ],
+      "clients": [
+        {}
+      ],
+      "tasks": [
+        {}
+      ]
+    },
+    {
+      "userid": 2,
+      "workitem": [
+        {
+          "id": "20220820",
+          "date": "2022-08-20",
+          "day": 21,
+          "start": "08:30",
+          "end": "16:00",
+          "subtract": "30",
+          "hours": "7h 0m",
+          "info": ""
+        }
+      ]
+    }
+  ]
+}

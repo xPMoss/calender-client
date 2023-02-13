@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+<!-- | MONTH | -->
+<div class="container-fluid mb-4" *ngIf="calender.view.month">
+
+    <div class="row bg-light py-3 border">
+        <prev-btn-item class="col-auto"></prev-btn-item>
+        <div class="col p-0 m-0"></div>
+
+        <div class="col-auto text-center pt-1 h4">
+            {{ calender.offset.month.name }}  {{ calender.offset.year.id }}
+
+        </div>
+
+        <today-btn-item class="col-auto p-0 m-0"></today-btn-item>
+        <div class="col p-0 m-0"></div>
+        <next-btn-item class="col-auto"></next-btn-item>
+        
+    </div>
+
+    <month-component [calender]="calender"></month-component>
+    
+</div>

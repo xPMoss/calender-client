@@ -1,0 +1,40 @@
+img { 
+  cursor: pointer; 
+  width: 150px;
+  margin: 20px;
+  vertical-align: middle;
+  transform-origin: center;
+}
+
+svg {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 50px;
+  cursor: pointer;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+}
+
+svg path {
+  stroke-width: 2px;
+  stroke: black;
+  transform-origin: center;
+  transition: all .2s ease;
+}
+
+svg:hover {
+  border: none;
+}
+
+svg:hover path:nth-child(1) {
+  transform: rotate(45deg) translateY(35px);
+}
+
+svg:hover path:nth-child(2) {
+  opacity: 0;
+}
+
+svg:hover path:nth-child(3) {
+  transform: rotate(135deg) translateY(-25px) translateX(-2px);
+}

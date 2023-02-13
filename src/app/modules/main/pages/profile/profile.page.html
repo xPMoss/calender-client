@@ -1,0 +1,33 @@
+
+
+
+
+<!-- Profile Page -->
+<div class="container-fluid mb-4 p-4">
+
+    <div class="row">
+        <div class="col-1" *ngIf="userService.user.photoURL"> 
+            <img class="img-fluid rounded-circle" src="{{userService.user.photoURL}}" alt="" srcset="">
+        </div>
+        <div class="w-100"></div>
+
+        <div class="col-auto ps-0" *ngIf="userService.user.displayName">
+            {{ "Namn:&nbsp;" + userService.user.displayName }}
+        </div>
+        <div class="w-100"></div>
+
+        <div class="col-auto ps-0" *ngIf="userService.user.email">
+            {{ "Email:&nbsp;" + userService.user.email }}
+        </div>
+        <div class="w-100"></div>
+
+        <div class="col-auto ps-0" *ngIf="userService.user.uid">
+            {{ "Id:&nbsp;" + userService.user.uid }}
+        </div>
+        <div class="w-100"></div>
+
+
+
+    </div>
+</div>
+

@@ -1,0 +1,31 @@
+
+
+<!-- DAY -->
+<div *ngIf="calender.view.day">
+    <button class="ms-sm-4 btn btn-outline-secondary" (click)="changeTime('-');" *ngIf="calender.offset.day.first == false">
+        <
+    </button>
+</div>
+
+<!-- WEEK -->
+<div *ngIf="calender.view.week">
+    <button class="ms-sm-4 btn btn-outline-secondary" (click)="changeTime('-');" *ngIf="calender.offset.week.first == false">
+        <
+    </button>
+</div>
+
+
+<!-- MONTH -->
+<div *ngIf="calender.view.month">
+    <button class="ms-sm-4 btn btn-outline-secondary" (click)="changeTime('-');" *ngIf="calender.offset.month.first == false">
+        <
+    </button>
+</div>
+
+
+<!-- YEAR -->
+<div *ngIf="calender.view.year">
+    <button class="ms-sm-4 btn btn-outline-secondary" (click)="changeTime('-');" *ngIf="calender.offset.year.first == false">
+        <
+    </button>
+</div>

@@ -1,0 +1,20 @@
+
+<ng-template #content let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title"></h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<p>Vill du logga ut?</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Avbryt</button>
+		<button type="button" class="btn btn-outline-danger" (click)="closeModal()">Logga ut</button>
+	</div>
+</ng-template>
+
+
+<a class="btn" (click)="openModal(content)">
+	<i class="bi bi-box-arrow-right h4"></i>
+    <!--Logga ut-->
+</a>

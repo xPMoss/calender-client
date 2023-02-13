@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "calender-angular-13656"
+  },
+  "targets": {
+    "calender-angular-13656": {
+      "hosting": {
+        "client": [
+          "calender-angular-13656"
+        ]
+      }
+    }
+  }
+}

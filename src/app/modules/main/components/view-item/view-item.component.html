@@ -1,0 +1,47 @@
+
+<div class="container-fluid py-3 bg-light">
+    <div class="row">
+
+        <div class="d-flex justify-content-center">
+
+            <div class="col"></div>
+
+            <!-- YEAR -->
+            <button class="col-auto mx-2 btn btn-outline-secondary active" (click)="changeView('year');" *ngIf="calender.view.year">
+                År
+            </button>
+            <button class="col-auto mx-2 btn btn-outline-secondary" (click)="changeView('year');" *ngIf="calender.view.year == false">
+                År
+            </button>
+
+            <!-- MONTH -->
+            <button class="col-auto me-2 btn  btn-outline-secondary active" (click)="changeView('month');" *ngIf="calender.view.month">
+                Månad
+            </button>
+            <button class="col-auto me-2 btn  btn-outline-secondary" (click)="changeView('month');" *ngIf="calender.view.month == false">
+                Månad
+            </button>
+
+            <!-- WEEK -->
+            <button class="col-auto me-2 btn btn-outline-secondary active" (click)="changeView('week');" *ngIf="calender.view.week">
+                Vecka
+            </button>
+            <button class="col-auto me-2 btn btn-outline-secondary" (click)="changeView('week');" *ngIf="calender.view.week == false">
+                Vecka
+            </button>
+
+            <!-- DAY -->
+            <button class="col-auto btn btn-outline-secondary active" (click)="changeView('day');" *ngIf="calender.view.day">
+                Dag
+            </button>
+            <button class="col-auto btn btn-outline-secondary" (click)="changeView('day');" *ngIf="calender.view.day == false">
+                Dag
+            </button>
+
+            <div class="col"> </div>
+
+        </div>
+        
+        
+    </div>
+</div>
