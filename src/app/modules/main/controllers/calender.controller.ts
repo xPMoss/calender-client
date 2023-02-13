@@ -12,6 +12,7 @@ import { Calender } from '../models/calender';
 @Injectable({ providedIn: 'root' })
 export class CalenderController {
 
+    isLoading:boolean = true;
     
     isLoaded = async function task() {
         return new Promise(res => {
@@ -74,6 +75,7 @@ export class CalenderController {
       return data;
       */
 
+
       let data = await this.calenderService.getItems("workitem", this.userService.user.uid)
 
 
@@ -123,6 +125,8 @@ export class CalenderController {
 
     // Load saved worked hours
     async loadItems():Promise<boolean>{
+        this.isLoading = true;
+
       //console.log("CalenderComponent().loadItems()");
       let data = await this.getItems();
 
@@ -194,7 +198,8 @@ export class CalenderController {
           
       }
 
-
+      this.isLoading = false;
+      
       if (data.length > 0) {
         return true;
 
@@ -203,6 +208,8 @@ export class CalenderController {
         return false;
         
       }
+
+      
 
 
   }

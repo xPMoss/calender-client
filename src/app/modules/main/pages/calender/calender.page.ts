@@ -35,8 +35,9 @@ export class CalenderPage {
         ){
         if(this.isDebugging)console.log(this.constructor.name);
 
-        this.userService.setUser().then(()=>{
-            this.calenderController.loadItems();
+        this.userService.setUser().then( async ()=>{
+            await this.calenderController.loadItems();
+            
         })
   
 

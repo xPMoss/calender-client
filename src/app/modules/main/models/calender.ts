@@ -335,7 +335,7 @@ class View{
     week:boolean =  false;
     day:boolean =  false;
 
-    iterate:number = 1;
+    iterate:number = 2;
 
     constructor(){
         if (this.iterate == 0) {
@@ -376,6 +376,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class Calender{
+
+    isLoading:boolean = true;
 
     startYear = 2020;
     endYear = 2026;

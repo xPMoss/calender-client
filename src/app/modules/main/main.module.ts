@@ -12,6 +12,8 @@ import { CalenderPage } from './pages/calender/calender.page';
 import { ProfilePage } from './pages/profile/profile.page';
 
 // Components
+import { LoadingComponent } from "./components/shared/loading/loading.component";
+
 import { AuthenticationButtonComponent } from "../main/components/authentication/authentication-button.component";
 import { LoginButtonComponent } from "../main/components/login/login-button";
 import { LogoutButtonComponent } from "../main/components/logout/logout-button";
@@ -37,10 +39,12 @@ import { UserService } from '../main/services/user.service'
 import { NavService } from "./components/shared/nav/nav.service";
 import { CalenderService } from './services/calender.service'
 
-
 import { Globals } from "./../../helpers/globals";
 import { CalenderController } from "./controllers/calender.controller";
 import { Calender } from "./models/calender";
+
+import { NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
     declarations: [
@@ -60,12 +64,14 @@ import { Calender } from "./models/calender";
         AuthenticationButtonComponent,
         LoginButtonComponent,
         LogoutButtonComponent,
+        LoadingComponent,
 
     ],
     imports: [
       CommonModule,
       FormsModule,
       MainRoutingModule,
+      NgbProgressbarModule,
 
     ],
     providers: [

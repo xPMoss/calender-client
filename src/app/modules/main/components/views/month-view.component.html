@@ -23,6 +23,10 @@
         
     </div>
 
-    <month-component [calender]="calender"></month-component>
+    <div class="text-center p-4" *ngIf="calenderController.isLoading">
+        <loading-component></loading-component>
+    </div>
+
+    <month-component [calender]="calender" *ngIf="!calenderController.isLoading"></month-component>
     
 </div>

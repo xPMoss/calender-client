@@ -7,6 +7,7 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 import { AuthPage } from './auth.page';
 import { LoginPage } from './pages/login/login.page';
+import { LogoutPage } from './pages/logout/logout.page';
 
 //----- | USER PROFILE | -----//
 
@@ -18,6 +19,7 @@ import { Globals } from "./../../helpers/globals";
   declarations: [
     AuthPage,
     LoginPage,
+    LogoutPage,
 
 
   ],

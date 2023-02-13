@@ -71,9 +71,17 @@
     </div>
     <div class="w-100 d-inline d-md-none"></div>
     <div class="col d-inline d-md-none"></div>
-    <div class="col-auto py-1 d-inline d-md-none"> {{ week.hours }}</div>
+    <div class="col-auto py-1 d-inline d-md-none"> 
+        {{ week.hours }}
+        <div *ngIf="!week.hours">
+            Loading...
+        </div>
+    </div>
     <div class="col px-1 px-md-3 pb-4 border d-none d-md-inline" *ngIf="week.empty==false">
         {{ week.hours }}
+        <div *ngIf="!week.hours">
+            Loading...
+        </div>
     </div>
     <div class="col px-1 px-md-3 pb-4 border d-none d-md-inline" *ngIf="week.empty==true"></div>
     <div class="w-100"></div>

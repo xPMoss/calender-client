@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthPage } from './auth.page';
 import { LoginPage } from './pages/login/login.page';
+import { LogoutPage } from './pages/logout/logout.page';
 
 
 const routes: Routes = [
   { path: '',   redirectTo: 'login', pathMatch: 'full' }, // redirect to 
   { path:"login", component: LoginPage, data: { page: {id: 'login' } } },
+  { path:"logout", component: LogoutPage, data: { page: {id: 'logout' } } },
   
 ];
 

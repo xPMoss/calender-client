@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { DOCUMENT } from '@angular/common';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
+
 
 import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -16,7 +18,8 @@ export class LogoutButtonComponent {
     private auth: AuthService,
     config: NgbModalConfig, 
     public activeModal:NgbActiveModal,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public router:Router,
     
     ){
 
@@ -51,6 +54,14 @@ export class LogoutButtonComponent {
       returnTo: this.document.location.origin
       
     });
+
+
+    /*
+    this.auth.logout({ 
+      returnTo: this.document.location.origin
+      
+    });
+    */
   }
 
 
