@@ -1,3 +1,13 @@
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/docs
+/www
+
+
 # Logs
 logs
 *.log
