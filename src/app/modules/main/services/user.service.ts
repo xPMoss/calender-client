@@ -45,7 +45,7 @@ export class UserService {
     })
    
     
-    //console.log(user)
+    console.log(user)
 
     // Auth0 params
     this.user.uid = user.sub;

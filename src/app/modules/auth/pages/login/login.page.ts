@@ -23,7 +23,7 @@ export class LoginPage {
   }
 
   SignIn(email, psw){
-
+    
     //this.authService.login(email.value, psw.value);
     
   }
