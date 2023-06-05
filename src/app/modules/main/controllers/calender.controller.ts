@@ -425,7 +425,7 @@ export class CalenderController {
 
   // Calculate worked hours
   async calcSum(item:any, value:string, type:string){
-      
+
       let isValidated = this.validate(item, value, type);
       let deleteCheck = this.deleteCheck(item, value, type);
 
