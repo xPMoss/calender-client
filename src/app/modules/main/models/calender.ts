@@ -338,6 +338,16 @@ class View{
     iterate:number = 2;
 
     constructor(){
+        let ViewLevel = localStorage.getItem("ViewLevel")
+        console.log("ViewLevel", ViewLevel)
+
+        if(ViewLevel){
+            ViewLevel == "year" ? this.iterate = 0 : null
+            ViewLevel == "month" ? this.iterate = 1 : null
+            ViewLevel == "week" ? this.iterate = 2 : null
+            ViewLevel == "day" ? this.iterate = 3 : null
+        }
+
         if (this.iterate == 0) {
            this.year = true 
            this.month = false 

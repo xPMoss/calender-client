@@ -24,7 +24,7 @@ import { CalenderController } from "../../controllers/calender.controller";
 
   
     ngOnInit() {
-      console.log(this.constructor.name + ".ngOnInit()");
+      //console.log(this.constructor.name + ".ngOnInit()");
     
       this.calc();
     }
@@ -36,7 +36,7 @@ import { CalenderController } from "../../controllers/calender.controller";
     }
 
     async calc(){
-      console.log(this.constructor.name + ".calc()");
+      //console.log(this.constructor.name + ".calc()");
 
       let waitForIt = async() => {
         const promises = new Array(100).fill(0).map(this.calenderController.isLoaded);
@@ -50,28 +50,24 @@ import { CalenderController } from "../../controllers/calender.controller";
 
       let day:any = this.calender.offset.day;
 
-      console.log(day)
-      console.log(day.date)
-      console.log("start")
-      console.log(day.start)
-      console.log(day.end)
-      console.log(day.subtract)
-      console.log("start")
+      //console.log(day)
+      //console.log(day.date)
+      //console.log("start")
+      //console.log(day.start)
+      //console.log(day.end)
+      //console.log(day.subtract)
+      //console.log("start")
 
       var date1 = new Date(day.date + ":" + day.start);
       var date2 = new Date(day.date + ":" + day.end);
       
-      console.log(date1);
+      //console.log(date1);
 
       let temp = date2.getTime() - date1.getTime();
-
-      
       let difference = temp / (1000 * 3600) * 60;
-      
-
       let variance = (difference % 60)
 
-      console.log(variance)
+      //console.log(variance)
 
       difference = difference/60;
 
@@ -93,9 +89,9 @@ import { CalenderController } from "../../controllers/calender.controller";
         
       }
 
-      console.log(difference)
+      //console.log(difference)
 
-      console.log(this.constructor.name + ".calc() END");
+      //console.log(this.constructor.name + ".calc() END");
 
       
     }

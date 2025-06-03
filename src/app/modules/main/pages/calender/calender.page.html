@@ -14,15 +14,22 @@
 <!-- | VIEW LEVELS | -->
 <view-item></view-item>
 
-<!-- | DAY | -->
-<day-view-item [calender]="calender" *ngIf="calender.view.day"></day-view-item>
-<!-- | WEEK | -->
-<week-view-item [calender]="calender" *ngIf="calender.view.week"></week-view-item>
-<!-- | MONTH | -->
-<month-view-item [calender]="calender" *ngIf="calender.view.month"></month-view-item>
-<!-- | YEAR | -->
-<year-view-item [calender]="calender" *ngIf="calender.view.year"></year-view-item>
+<div class="container-fluid mb-4" *ngIf="calenderController.isLoading">
+    <div class="text-center p-4">
+        <loading-component></loading-component>
+    </div>
+</div>
 
+<div class="container-fluid p-0 m-0 mb-4" *ngIf="!calenderController.isLoading">
+    <!-- | DAY | -->
+    <day-view-item [calender]="calender" *ngIf="calender.view.day"></day-view-item>
+    <!-- | WEEK | -->
+    <week-view-item [calender]="calender" *ngIf="calender.view.week"></week-view-item>
+    <!-- | MONTH | -->
+    <month-view-item [calender]="calender" *ngIf="calender.view.month"></month-view-item>
+    <!-- | YEAR | -->
+    <year-view-item [calender]="calender" *ngIf="calender.view.year"></year-view-item>
+</div>
 
 
 

@@ -29,6 +29,7 @@ export class CalenderController {
 
   // ----- | VIEW/NAV | ----- //
   changeView(level:string){
+    
     if (level == "year") {
         this.calender.view.year = true;
         this.calender.view.month = false;
@@ -61,6 +62,8 @@ export class CalenderController {
 
     }
 
+    console.log("CHANGE", level)
+    localStorage.setItem("ViewLevel", level)
 
   }
 
@@ -146,8 +149,6 @@ export class CalenderController {
               for (let k = 0; k < year.days.length; k++) {
                   //let dayId = year.days[k].id;
                   let dayDate = year.days[k].date;
-
-                  
 
                   if (dayDate == date) {
                       //console.log("found: " + dayId)

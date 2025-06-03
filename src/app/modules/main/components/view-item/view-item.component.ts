@@ -61,6 +61,8 @@ export class ViewItemComponent {
 
     }
 
+    console.log("CHANGE", level)
+    localStorage.setItem("ViewLevel", level)
 
 }
 

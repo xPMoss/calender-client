@@ -1,34 +1,25 @@
 
-<!-- DAY -->
-<div *ngIf="calender.view.day"> 
-    <button class="col-auto me-sm-4 btn btn-outline-secondary" (click)="changeTime('+');" *ngIf="calender.offset.day.last == false" >
-        >
-    </button>
-</div>
 
-<!-- WEEK -->
-<div *ngIf="calender.view.week"> 
-    <button class="me-sm-4 btn btn-outline-secondary" (click)="changeTime('+');" *ngIf="calender.offset.week.last == false" >
+<!-- NEXT -->
+<div 
+    *ngIf="
+        calender.view.day
+        || calender.view.week
+        || calender.view.month
+        || calender.view.year
+    "
+>
+    <button 
+        class="btn btn-outline-secondary" 
+        (click)="changeTime('+');" 
+        *ngIf="
+            calender.offset.day.last == false
+            || calender.offset.week.last == false
+            || calender.offset.month.last == false
+            || calender.offset.year.last == false
+            "
         >
-    </button>
-</div>
-
-<!-- MONTH -->
-<div *ngIf="calender.view.month"> 
-    <button class="me-sm-4 btn btn-outline-secondary" (click)="changeTime('+');" *ngIf="calender.offset.month.last == false" >
-    >
-    </button>
-    <button disabled="true" class="me-4 btn btn-outline-secondary" (click)="changeTime('+');" *ngIf="calender.offset.month.last == true" >
-        >
-    </button>
-</div>
-
-<!-- YEAR -->
-<div *ngIf="calender.view.year"> 
-    <button class="me-sm-4 btn btn-outline-secondary" (click)="changeTime('+');" *ngIf="calender.offset.year.last == false" >
-    >
-    </button>
-    <button disabled="true" class="me-sm-4 btn btn-outline-secondary" (click)="changeTime('+');" *ngIf="calender.offset.year.last == true" >
-        >
+        <span class="d-none d-md-inline">Nästa&nbsp;</span>
+        <span>></span>
     </button>
 </div>
